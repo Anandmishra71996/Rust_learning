@@ -1,25 +1,33 @@
-enum shape {
-    Triangle,
-    Square,
-    Pentagon,
-    Octagon,
+trait carFunctions {
+    fn set_mpg(&mut self, val: i32);
+    fn set_color(&mut self, val: String);
+    fn set_top_speed(&mut self, val: i32);
 }
-impl shape {
-    fn corners(&self) -> i8 {
-        match self {
-            shape::Triangle => 3,
-            shape::Square => 4,
-            shape::Pentagon => 5,
-            shape::Octagon => 8,
-            _ => 0,
-        }
+struct Car {
+    mpg: i32,
+    color: String,
+    top_speed: i32,
+}
+impl carFunctions for Car {
+    fn set_mpg(&mut self, val: i32) {
+        self.mpg = val;
+    }
+    fn set_color(&mut self, val: String) {
+        self.color = val;
+    }
+    fn set_top_speed(&mut self, val: i32) {
+        self.top_speed = val
     }
 }
 fn main() {
-    let sq = shape::Square;
-    let tr = shape::Triangle;
-    let val = sq.corners();
-    let val1 = tr.corners();
-    println!("{}", val);
-    println!("{}", val1);
+    let mut newCar = Car {
+        mpg: 150,
+        top_speed: 220,
+        color: String::from("Red"),
+    };
+    println!("{} {} {}", newCar.mpg, newCar.top_speed, newCar.color);
+    newCar.set_mpg(70);
+    newCar.set_top_speed(250);
+    newCar.set_color(String::from("Green"));
+    println!("{} {} {}", newCar.mpg, newCar.top_speed, newCar.color);
 }
