@@ -1,0 +1,8 @@
+<div class="container">
+  <h1>Welcome to TODO Desktop Application</h1>
+  
+  <button (click)="addNewTask()">Add New Task</button>
+  <div *ngIf="openAddNew" style="padding: 10px; display: flex; justify-content: space-between;">
+  <input  [(ngModel)]="task" placeholder="Enter Your Task"/> <button (click)="saveTask()">Add</button>
+  </div>
+</div>
