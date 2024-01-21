@@ -1,8 +1,14 @@
 <div class="container">
-  <h1>Welcome to TODO Desktop Application</h1>
+  <h1 class="text-3xl font-bold text-center underline center">Welcome to TODO Desktop Application</h1>
   
-  <button (click)="addNewTask()">Add New Task</button>
-  <div *ngIf="openAddNew" style="padding: 10px; display: flex; justify-content: space-between;">
-  <input  [(ngModel)]="task" placeholder="Enter Your Task"/> <button (click)="saveTask()">Add</button>
+  <button (click)="addNewTask()" class="bg-blue-500 text-center  mx-auto my-4 w-[400px] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add New Task</button>
+  <div *ngIf="openAddNew" style="padding: 10px; display: flex; justify-content: center; gap:20px;">
+  <input  [(ngModel)]="task" class="w-[400px] p-2 rounded border" placeholder="Enter Your Task"/> <button class="bg-blue-500 py-2 w-[50px] rounded text-white" (click)="saveTask()">Add</button>
+  </div>
+  <div>
+    <h3 class="text-green-500 font-bold">Available Task</h3>
+    <div *ngFor="let task of taskList; let i=index;" class="flex gap-2">
+   <span class="text-blue-500">{{i+1}}</span> <p class="text-red-500"> {{task.task}}</p>
+    </div>
   </div>
 </div>
